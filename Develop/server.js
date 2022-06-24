@@ -50,9 +50,13 @@ async function connectionTest() {
 
 async function server_init() {
 
-  // Seed DB
-  seedAll();
-  //TODO: Add Try/Catch if seeding fails
+  // Seed DB / Catch Fail
+  try {
+    await seedAll();
+    console.log('\n\x1b[42m----- SEEDING COMPLETE/VALID -----\x1b[0m\n');
+  } catch (error) {
+    console.log('\n\x1b[41m----- SEEDING FAILED! -----\x1b[0m\n');
+  }
 
 };
 
