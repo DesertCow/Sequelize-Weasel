@@ -43,11 +43,14 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
+
+  //console.log("CATID = " + req.body.category_id);
+
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-      if (req.body.tagIds.length) {
-        const productTagIdArr = req.body.tagIds.map((tag_id) => {
+      if (req.body.category_id.length) {
+        const productTagIdArr = req.body.category_id.map((tag_id) => {
           return {
             product_id: product.id,
             tag_id,
@@ -81,7 +84,7 @@ router.put('/:id', (req, res) => {
       // get list of current tag_ids
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
       // create filtered list of new tag_ids
-      const newProductTags = req.body.tagIds
+      const newProductTags = req.body.category_id
         .filter((tag_id) => !productTagIds.includes(tag_id))
         .map((tag_id) => {
           return {
@@ -91,7 +94,7 @@ router.put('/:id', (req, res) => {
         });
       // figure out which ones to remove
       const productTagsToRemove = productTags
-        .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+        .filter(({ tag_id }) => !req.body.category_id.includes(tag_id))
         .map(({ id }) => id);
 
       // run both actions
