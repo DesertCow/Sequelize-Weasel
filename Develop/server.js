@@ -28,31 +28,31 @@ async function mainMenu() {
       {
         type: 'list',
         name: 'mainMenuChoice',
-        choices: ['Seed Database', 'Test Database Connection', 'Start Application', 'View Enviroment Settings', '\x1b[41mExit\x1b[0m'],
-        message: "Please Select from the following options",
+        choices: ['\x1b[32mSeed Database\x1b[0m', '\x1b[33mTest Database Connection\x1b[0m', '\x1b[34mStart Application\x1b[0m', '\x1b[35mView Enviroment Settings\x1b[0m\n', '\x1b[41m   ~~~~~~ Exit ~~~~~~   \x1b[0m'],
+        message: "Please Select from the following options\n",
       },
     ])
     .then(answers => {
 
       switch (answers.mainMenuChoice) {
-        case 'Seed Database':
+        case '\x1b[32mSeed Database\x1b[0m':
           console.log("Seed DB...")
           seedServer();
           break;
-        case 'Test Database Connection':
+        case '\x1b[33mTest Database Connection\x1b[0m':
           connectionTest();
           mainMenu()
           break;
-        case 'Start Application':
+        case '\x1b[34mStart Application\x1b[0m':
           startLocalServer();
           // console.log("Start Server...")
           break;
-        case 'View Enviroment Settings':
-          viewEnviromentSettings();
+        case '\x1b[35mView Enviroment Settings\x1b[0m\n':
+          viewEnviromentSettings(PORT);
           // console.log("Start Server...")
           break;
-        case '\x1b[41mExit\x1b[0m':
-          console.log(`\x1b[41m==================== Exit! ====================\x1b[0m`);
+        case '\x1b[41m   ~~~~~~ Exit ~~~~~~   \x1b[0m':
+          // console.log(`\x1b[41m==================== Exit! ====================\x1b[0m`);
           process.exit(1);
           break;
       }
@@ -61,8 +61,8 @@ async function mainMenu() {
 }
 
 async function connectionTest() {
-
-  console.log
+  //TODO: Move to seperate File and Import method
+  // console.log
 
   try {
     await sequelize.authenticate();
@@ -75,7 +75,7 @@ async function connectionTest() {
 };
 
 async function seedServer() {
-
+  //TODO: Move to seperate File and Import method
   // Seed DB / Catch Fail
   try {
     await seedAll();
@@ -102,11 +102,11 @@ async function startLocalServer() {
   });
 }
 
-function viewEnviromentSettings() {
+function viewEnviromentSettings(port) {
 
   console.log(`\n\x1b[42m  ~~~ Local Server Config~~~  \x1b[0m`);
   console.log('Address: ' + 'http://localhost:');
-  console.log('Port: ' + PORT);
+  console.log('Port: ' + port);
 
   console.log(`\n\x1b[43m  ~~~ Database Config~~~  \x1b[0m`);
   console.log("JAWSDB URL: " + process.env.JAWSDB_URL);
