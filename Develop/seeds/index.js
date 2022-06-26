@@ -27,7 +27,14 @@ const seedAll = async () => {
   // process.exit(0);
 };
 
-// seedAll();
+if (process.argv[2]) {
 
+  console.log("ARGV = " + process.argv[2].substring(1))
+
+  if (process.argv[2].substring(1) === 'true') {
+    seedAll();
+  }
+
+}
 
 module.exports = seedAll;

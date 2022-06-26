@@ -4,7 +4,7 @@ const sequelize = require('./config/connection');
 const seedAll = require('./seeds/index');
 const { init } = require('./models/Category');
 const inquirer = require('inquirer');
-// import sequelize connection
+const { config } = require('dotenv');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,21 +19,6 @@ app.use(routes);
 
 //!=========================== Main Functions ==========================
 
-async function connectionTest() {
-
-  try {
-    await sequelize.authenticate();
-    console.log(`\n\x1b[42m  ~~~ Remote DB Connection Valid ~~~  \x1b[0m\n`);
-  } catch (error) {
-    console.error('\n\n\x1b[41mUnable to connect to the database!\x1b[0m\n\x1b[43mERROR:', error + "\x1b[0m\n\n");
-  }
-
-  //sequelize.close()
-};
-
-
-
-
 async function mainMenu() {
 
   await 1
@@ -43,7 +28,7 @@ async function mainMenu() {
       {
         type: 'list',
         name: 'mainMenuChoice',
-        choices: ['Seed Database', 'Test Database Connection', 'Start Application', '\x1b[41mExit\x1b[0m'],
+        choices: ['Seed Database', 'Test Database Connection', 'Start Application', 'View Enviroment Settings', '\x1b[41mExit\x1b[0m'],
         message: "Please Select from the following options",
       },
     ])
@@ -62,6 +47,10 @@ async function mainMenu() {
           startLocalServer();
           // console.log("Start Server...")
           break;
+        case 'View Enviroment Settings':
+          viewEnviromentSettings();
+          // console.log("Start Server...")
+          break;
         case '\x1b[41mExit\x1b[0m':
           console.log(`\x1b[41m==================== Exit! ====================\x1b[0m`);
           process.exit(1);
@@ -70,6 +59,20 @@ async function mainMenu() {
     })
 
 }
+
+async function connectionTest() {
+
+  console.log
+
+  try {
+    await sequelize.authenticate();
+    console.log(`\n\x1b[42m  ~~~ Remote DB Connection Valid ~~~  \x1b[0m\n`);
+  } catch (error) {
+    console.error('\n\n\x1b[41mUnable to connect to the database!\x1b[0m\n\x1b[43mERROR:', error + "\x1b[0m\n\n");
+  }
+
+  //sequelize.close()
+};
 
 async function seedServer() {
 
@@ -99,6 +102,23 @@ async function startLocalServer() {
   });
 }
 
+function viewEnviromentSettings() {
+
+  console.log(`\n\x1b[42m  ~~~ Local Server Config~~~  \x1b[0m`);
+  console.log('Address: ' + 'http://localhost:');
+  console.log('Port: ' + PORT);
+
+  console.log(`\n\x1b[43m  ~~~ Database Config~~~  \x1b[0m`);
+  console.log("JAWSDB URL: " + process.env.JAWSDB_URL);
+  console.log("DB_HOST: " + process.env.DB_HOST);
+  console.log("DB_HOSTPORT: " + process.env.DB_HOSTPORT);
+  console.log("DB_PW: " + process.env.DB_PW);
+  console.log("DB_USER: " + process.env.DB_USER);
+  console.log("DB_NAME: " + process.env.DB_NAM + "\n\n");
+
+  mainMenu();
+
+}
 
 //!========================= Init =========================
 

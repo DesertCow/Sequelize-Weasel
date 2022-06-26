@@ -6,11 +6,48 @@ const ProductTag = require('./ProductTag');
 
 // Products belongsTo Category
 
-// Categories have many Products
+// Product.belongsTo(Category, {
+//   // Define the third table needed to store the foreign keys
+//   foreignKey: {
+//     name: 'category_id',
+//     as: 'CategoryRetrived'
+//   }
+//   // Define an alias for when data is retrieved
+//   // as: 'CategoryRetrived'
+// });
 
-// Products belongToMany Tags (through ProductTag)
+// // Categories have many Products
+// Category.belongsToMany(Product, {
+//   // Define the third table needed to store the foreign keys
+//   foreignKey: {
+//     name: 'id',
+//     as: 'ProductRetrived'
+//   }
+//   // Define an alias for when data is retrieved
 
-// Tags belongToMany Products (through ProductTag)
+// });
+
+// // Products belongToMany Tags (through ProductTag)
+// Product.belongsTo(Tag, {
+//   // Define the third table needed to store the foreign keys
+//   through: {
+//     model: ProductTag,
+//     unique: false
+//   },
+//   // Define an alias for when data is retrieved
+//   // as: 'planned_trips'
+// });
+
+// // Tags belongToMany Products (through ProductTag)
+// Tag.belongsToMany(Product, {
+//   // Define the third table needed to store the foreign keys
+//   through: {
+//     model: ProductTag,
+//     unique: false
+//   },
+//   // Define an alias for when data is retrieved
+//   // as: 'planned_trips'
+// });
 
 module.exports = {
   Product,
