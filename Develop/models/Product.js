@@ -30,7 +30,7 @@ Product.init(
     category_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      key: 'id',
+      key: 'cat_id',
     },
   },
   {
