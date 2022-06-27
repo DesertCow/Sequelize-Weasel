@@ -12,11 +12,10 @@ Product.belongsTo(Category, {
 
 //* Categories have many Products
 Category.hasMany(Product, {
-  foreignKey: 'id',
+  foreignKey: 'cat_id',
 });
 
 //* Products belongToMany Tags (through ProductTag)
-
 Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
@@ -26,13 +25,11 @@ Product.belongsToMany(Tag, {
 });
 
 //* Tags belongToMany Products (through ProductTag)
-
 Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,
     unique: false
   },
-
   as: 'productTag'
 });
 
