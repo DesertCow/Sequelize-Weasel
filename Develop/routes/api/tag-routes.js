@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
-// The `/api/tags` endpoint
-
+//* `/api/tags` endpoint
 router.get('/', async (req, res) => {
 
   try {
@@ -13,6 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//* `/api/tags/:#` endpoint
 router.get('/:id', async (req, res) => {
 
   try {
@@ -31,6 +31,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+//* `/api/tags` endpoint
 router.post('/', async (req, res) => {
   try {
     const tagData = await Tag.create(req.body);
@@ -40,6 +41,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+//* `/api/tags/:#` endpoint
 router.put('/:id', async (req, res) => {
 
   try {
@@ -59,6 +61,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+//* `/api/tags/:#` endpoint
 router.delete('/:id', async (req, res) => {
 
   try {
@@ -80,3 +83,5 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+//!========================= EOF =========================

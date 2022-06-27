@@ -4,6 +4,7 @@ const sequelize = require('../config/connection.js');
 
 class Category extends Model { }
 
+
 Category.init(
   {
     id: {
@@ -27,3 +28,5 @@ Category.init(
 );
 
 module.exports = Category;
+
+//!========================= EOF =========================
