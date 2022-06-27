@@ -6,6 +6,7 @@ const { init } = require('./models/Category');
 const inquirer = require('inquirer');
 const { config } = require('dotenv');
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -14,7 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Enable Routes
 app.use(routes);
-
 
 
 //!=========================== Main Functions ==========================
@@ -121,9 +121,6 @@ function viewEnviromentSettings(port) {
 }
 
 //!========================= Init =========================
-
-
-
 
 
 

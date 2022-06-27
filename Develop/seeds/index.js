@@ -21,12 +21,10 @@ const seedAll = async () => {
   await seedProductTags();
   console.log('\n\x1b[43m ~~~ PRODUCT TAGS SEEDED ~~~ \x1b[0m\n');
 
-  // console.log('\n----- SEEDING COMPLETE -----\n');
-
   return true;
-  // process.exit(0);
 };
 
+// Enable NPM seeding to call and force seed via ARGV
 if (process.argv[2]) {
 
   console.log("ARGV = " + process.argv[2].substring(1))
@@ -38,3 +36,5 @@ if (process.argv[2]) {
 }
 
 module.exports = seedAll;
+
+//!========================= EOF =========================

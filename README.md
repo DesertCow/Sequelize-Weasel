@@ -72,7 +72,7 @@ node server.js
 
 ---
 <p align="center">
-  <img src="./Develop/public/assets/img/Mockup-01.png" alt="Mock Up of App" width="650")
+  <img src="./project_Meta/SQL_Diagram_1.png" alt="Database Diagram" width="650")
 </p>
 
 <br>

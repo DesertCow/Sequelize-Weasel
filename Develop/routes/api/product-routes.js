@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
-// The `/api/products` endpoint
 
-// get all products
+//* `/api/products/` endpoint
 router.get('/', async (req, res) => {
 
   try {
@@ -14,7 +13,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
+
+//* `/api/products/:#` endpoint
 router.get('/:id', async (req, res) => {
 
   try {
@@ -33,18 +33,9 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// create new product
-router.post('/', (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
 
-  //console.log("CATID = " + req.body.category_id);
+//* `/api/products/` endpoint
+router.post('/', (req, res) => {
 
   Product.create(req.body)
     .then((product) => {
@@ -68,7 +59,8 @@ router.post('/', (req, res) => {
     });
 });
 
-// update product
+
+//* `/api/products/:id` endpoint
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -113,6 +105,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+//* `/api/products/:id` endpoint
 router.delete('/:id', async (req, res) => {
   try {
     const productData = await Product.destroy({
@@ -122,7 +115,7 @@ router.delete('/:id', async (req, res) => {
     });
 
     if (!productData) {
-      res.status(404).json({ message: 'No location found with this id!' });
+      res.status(404).json({ message: 'No Product found with this id!' });
       return;
     }
 
@@ -133,3 +126,5 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+//!========================= EOF =========================
