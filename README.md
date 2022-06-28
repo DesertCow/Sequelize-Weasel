@@ -10,7 +10,7 @@
 By Clayton Skaggs<br>
 (WW26.1) / June 27th 2022
 
-Version 0.1</h5>
+Version 0.2</h5>
 </div>
 
 <br>
@@ -21,9 +21,6 @@ Version 0.1</h5>
 <h3 align="center">🚀 🚀 Deployment Information 🚀 🚀</h3>
 
 ---
-
-<div align="center">
-<h3> Hosted by Heroku</h3>
 
 ````
 git clone git@github.com:DesertCow/Sequelize-Weasel.git
