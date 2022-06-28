@@ -10,7 +10,7 @@
 By Clayton Skaggs<br>
 (WW26.1) / June 27th 2022
 
-Version 0.1</h5>
+Version 0.2</h5>
 </div>
 
 <br>
@@ -22,10 +22,11 @@ Version 0.1</h5>
 
 ---
 
-<div align="center">
-<h3> Hosted by Heroku</h3>
-
 ````
+git clone git@github.com:DesertCow/Sequelize-Weasel.git
+cd Sequelize-Weasel/
+npm init -y
+npm i
 node server.js
 
 ````
@@ -68,7 +69,7 @@ node server.js
 <br>
 <br>
 
-<h3 align="center">📐 📐 Mock Up 📐 📐</h3>
+<h3 align="center">💾 💾 Database Diagram 💾 💾</h3>
 
 ---
 <p align="center">
@@ -79,33 +80,40 @@ node server.js
 <br>
 <br>
 
-<p align="center">
-  <img src="./Develop/public/assets/img/Mockup-02.png" alt="Mock Up of App" width="650")
-</p>
-
-<br>
-<br>
-<br>
-
-<p align="center">
-  <img src="./Develop/public/assets/img/Mockup-03.png" alt="Mock Up of App" width="650")
-</p>
-
-<br>
-<br>
-<br>
-
 <h3 align="center">⚡ ⚡ App Demo ⚡ ⚡</h3>
 
 ---
 
+<br>
+<br>
+<h4 align="center">Seed Database / Start Application</h4>
 <p align="center">
-<img src="./Develop/meta/Notey!_Demo.gif" alt="Mock Up of App" width="650")
+<iframe width="560px" height="320px" allowfullscreen="true" allow="autoplay *" src="https://bootcampspot.instructuremedia.com/embed/74158760-442a-4111-9484-1c547f772233" frameborder="0"></iframe>
 </p>
 
 <br>
 <br>
+<h4 align="center">GET Demo</h4>
+<br>
+<p align="center">
+<iframe width="560px" height="320px" allowfullscreen="true" allow="autoplay *" src="https://bootcampspot.instructuremedia.com/embed/ff58f969-2af7-46df-8009-0e4735510929" frameborder="0"></iframe>
+</p>
 
+<br>
+<br>
+<h4 align="center">GET by ID Demo</h4>
+<br>
+<p align="center">
+<iframe width="560px" height="320px" allowfullscreen="true" allow="autoplay *" src="https://bootcampspot.instructuremedia.com/embed/e1ffda9f-396d-425e-a525-a30d65e71d01" frameborder="0"></iframe>
+</p>
+<br>
+<br>
+
+<h4 align="center">POST/PUT/DELETE</h4>
+<br>
+<p align="center">
+<iframe width="560px" height="320px" allowfullscreen="true" allow="autoplay *" src="https://bootcampspot.instructuremedia.com/embed/5c4b43ba-b5ad-4c14-b39f-a000b69f65ae" frameborder="0"></iframe>
+</p>
 <br>
 <br>
 
@@ -114,8 +122,12 @@ node server.js
 -----
 
 ````
-# http://expressjs.com/en/4x/api.html
+
 npm i express
+npm i MySQL2
+npm i Sequelize
+npm i dotenv
+npm i inquirer@8.2.4
 
 ````
 
